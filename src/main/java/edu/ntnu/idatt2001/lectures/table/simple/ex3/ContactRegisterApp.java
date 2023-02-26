@@ -1,7 +1,10 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex3;
 
 import javafx.application.Application;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,20 +20,26 @@ public class ContactRegisterApp extends Application {
   public static void main(String[] args) {
     launch(args);
   }
-  
+
   @Override
   public void start(Stage primaryStage) {
 
     createTable();
 
-    fillTable();
+    ObservableList<Contact> list = getContacts();
+    list.addListener((Observable observable) -> System.out.println("List is invalidated"));
+
+    tableView.setItems(list);
 
     tableView.setOnMouseClicked(mouseEvent -> {
       Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
         System.out.println(selectedPerson.getLastName());
+
+        tableView.getItems().add(new Contact("Kristina", "Hansen", "kristina.hansen@mail.com"));
       }
     });
+
 
     BorderPane root = new BorderPane();
 
@@ -59,14 +68,14 @@ public class ContactRegisterApp extends Application {
 
   }
 
-  private void fillTable() {
-    tableView.setItems(FXCollections.observableArrayList(this.contactRegister.getAllContacts()));
+  private ObservableList<Contact> getContacts() {
+    return FXCollections.observableArrayList(this.contactRegister.getAllContacts());
   }
 
   @Override
   public void init() throws Exception {
     super.init();
-    
+
     contactRegister = new ContactRegister();
     contactRegister.addContact(new Contact("John", "Doe", "john.doe@hotmail.com"));
     contactRegister.addContact(new Contact("Jane", "Deer", "jane.deere@hotmail.com"));
