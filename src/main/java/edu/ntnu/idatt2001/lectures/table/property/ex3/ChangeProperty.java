@@ -6,32 +6,36 @@ import javafx.beans.value.ObservableValue;
 
 public class ChangeProperty {
   public static void main(String[] args) {
-    IntegerProperty counter = new SimpleIntegerProperty(1);
+    int x = 100;
+
+    IntegerProperty counter = new SimpleIntegerProperty(x);
 
     // Add a change listener to the counter property
     counter.addListener(ChangeProperty::changed);
 
-    System.out.println("value-11");
-    counter.set(11); /* w w w .d e m o 2 s . c o m */
-    System.out.println("value-11");
+    System.out.println(x);
+    counter.set(x);
+    System.out.println(x);
 
-    System.out.println("value-12");
-    counter.set(12);
-    System.out.println("value-12");
+    //Change value
+    x++;
+    System.out.println(x);
+    counter.set(x);
+    System.out.println(x);
 
     // Try setting the same value
-    System.out.println("value-12");
-    counter.set(12); // No change event will be fired.
-    System.out.println("value-12");
+    System.out.println(x);
+    counter.set(x); // No change event will be fired.
+    System.out.println(x);
 
     // Try setting a different value
-    System.out.println("value-13");
-    counter.set(13);
-    System.out.println("value-13");
+    x++;
+    System.out.println(x);
+    counter.set(x);
+    System.out.println(x);
   }
 
-  public static void changed(ObservableValue<? extends Number> prop, Number oldValue,
-      Number newValue) {
+  public static void changed(ObservableValue<? extends Number> prop, Number oldValue, Number newValue) {
     System.out.print("Counter changed: ");
     System.out.println("Old = " + oldValue + ", new = " + newValue);
   }

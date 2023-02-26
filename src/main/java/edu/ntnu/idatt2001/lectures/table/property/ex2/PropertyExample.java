@@ -21,25 +21,13 @@ public class PropertyExample extends Application {
     ReadOnlyDoubleProperty widthProperty = pane.widthProperty();
     ReadOnlyDoubleProperty hightProperty = pane.heightProperty();
 
-    widthProperty.addListener(new ChangeListener<Number>() {
-      @Override
-      public void changed(ObservableValue<? extends Number> observableValue, Number oldVal,
-          Number newVal) {
+    widthProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> 
+      System.out.println("widthProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue())
+    );
 
-        System.out.println(
-            "widthProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue());
-      }
-    });
-
-    hightProperty.addListener(new ChangeListener<Number>() {
-      @Override
-      public void changed(ObservableValue<? extends Number> observableValue, Number oldVal,
-          Number newVal) {
-
-        System.out.println(
-            "hightProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue());
-      }
-    });
+    hightProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> 
+      System.out.println("hightProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue())
+    );
 
     Scene scene = new Scene(pane, 200, 200, true);
     primaryStage.setScene(scene);

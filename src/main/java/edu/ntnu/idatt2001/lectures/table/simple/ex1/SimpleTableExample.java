@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class SimpleTableExample extends Application {
 
-  TableView<Contact> tableView = new TableView<Contact>();
+  TableView<Contact> tableView = new TableView<>();
 
   public static void main(String[] args) {
     launch(args);
@@ -43,12 +43,12 @@ public class SimpleTableExample extends Application {
   private void createTable() {
 
     TableColumn<Contact, String> col1 = new TableColumn<>("First Name");
-    col1.setCellValueFactory(new PropertyValueFactory<Contact, String>("firstName"));
+    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-    TableColumn<Contact, String> col2 = new TableColumn<Contact, String>("Last Name");
-    col2.setCellValueFactory(new PropertyValueFactory<Contact, String>("lastName"));
+    TableColumn<Contact, String> col2 = new TableColumn<>("Last Name");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
-    TableColumn<Contact, String> col3 = new TableColumn<Contact, String>("Email");
+    TableColumn<Contact, String> col3 = new TableColumn<>("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     tableView.getColumns().add(col1);

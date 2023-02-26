@@ -31,7 +31,7 @@ public class DialogInformationMultipleWindowModality extends Application {
     btn.setText("Open new window");
 
     
-    EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> eventHandler = new EventHandler<>() {
       @Override
       public void handle(ActionEvent event) {
         

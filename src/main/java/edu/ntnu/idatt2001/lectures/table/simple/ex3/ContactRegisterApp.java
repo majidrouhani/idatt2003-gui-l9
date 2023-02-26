@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class ContactRegisterApp extends Application {
   ContactRegister contactRegister = null;
 
-  TableView<Contact> tableView = new TableView<Contact>();
+  TableView<Contact> tableView = new TableView<>();
 
   public static void main(String[] args) {
     launch(args);

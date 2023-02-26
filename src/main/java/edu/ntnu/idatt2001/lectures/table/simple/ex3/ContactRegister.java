@@ -14,13 +14,13 @@ import java.util.Collection;
  * @version 2020.03.16
  */
 public class ContactRegister {
-  private ArrayList<Contact> contactRegister = null;
+  private Collection<Contact> contacts = null;
 
   /**
    * Creates an instance of the ContactRegister, initialising the instance.
    */
   public ContactRegister() {
-    contactRegister = new ArrayList<>();
+    contacts = new ArrayList<>();
   }
 
   /**
@@ -30,7 +30,7 @@ public class ContactRegister {
    */
   public void addContact(Contact contact) {
     if (contact != null) {
-      contactRegister.add(contact);
+      contacts.add(contact);
     }
   }
 
@@ -40,6 +40,6 @@ public class ContactRegister {
    * @return all the contacts as a collection.
    */
   public Collection<Contact> getAllContacts() {
-    return this.contactRegister;
+    return this.contacts;
   }
 }

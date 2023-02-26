@@ -58,7 +58,8 @@ public class SimpleTableExampleNestedColumns extends Application {
     TableColumn<Contact, String> col32 = new TableColumn<>("Secondary");
     col32.setCellValueFactory(new PropertyValueFactory<>("secondaryEmail"));
     
-    col3.getColumns().addAll(col31, col32);
+    col3.getColumns().add(col31);
+    col3.getColumns().add(col32);
         
     tableView.getColumns().add(col1);
     tableView.getColumns().add(col2);

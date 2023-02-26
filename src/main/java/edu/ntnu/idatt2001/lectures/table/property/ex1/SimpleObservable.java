@@ -28,10 +28,11 @@ public class SimpleObservable {
     NumberBinding sum = a.add(b);
 
     System.out.println("\nObservable numbers:");
-    System.out.println(sum.getValue());
+    System.out.println(String.format("value of %s + %s = %s",a.getValue(),b.getValue(),sum.getValue()));
+
     a.setValue(30);
 
-    System.out.println(sum.getValue());
+    System.out.println(String.format("value of %s + %s = %s",a.getValue(),b.getValue(),sum.getValue()));
   }
 
   public static void main(String... args) {

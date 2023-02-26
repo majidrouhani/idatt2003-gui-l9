@@ -11,7 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class DialogInformation extends Application {
@@ -27,15 +26,12 @@ public class DialogInformation extends Application {
     btn.setText("Say 'Hello World'");
 
     
-    EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent event) {
+    EventHandler<ActionEvent> eventHandler = (ActionEvent event) -> {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText("Look, an Information Dialog");
         alert.setContentText("I have a great message for you!");
         alert.showAndWait();
-      }
     };
     
     btn.setOnAction(eventHandler);

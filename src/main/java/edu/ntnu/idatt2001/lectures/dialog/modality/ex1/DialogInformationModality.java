@@ -27,16 +27,13 @@ public class DialogInformationModality extends Application {
     btn.setText("Say 'Hello World'");
 
     
-    EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent event) {
+    EventHandler<ActionEvent> eventHandler = (ActionEvent event) -> {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.initModality(Modality.APPLICATION_MODAL);
         alert.setTitle("Information Dialog");
         alert.setHeaderText("Look, an Information Dialog");
         alert.setContentText("I have a great message for you!");
         alert.showAndWait();
-      }
     };
     
     btn.setOnAction(eventHandler);
