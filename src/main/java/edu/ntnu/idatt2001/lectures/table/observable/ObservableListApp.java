@@ -6,7 +6,6 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -99,7 +98,7 @@ public class ObservableListApp extends Application {
         "Chile", "Brussels", "San Jose", "Finland", "India");
     countriesListView = new ListView<>(countries);
 
-    capitals = FXCollections.observableArrayList("Costa Rica", "New Delhi", "Washington DC", "USA", "UK", "London",
+    capitals = FXCollections.observableArrayList("Costa Rica", "Norway", "Oslo","New Delhi", "Washington DC", "USA", "UK", "London",
         "Helsinki", "Taiwan", "Taipei", "Sweden", "Stockholm");
     capitalsListView = new ListView<>(capitals);
 
