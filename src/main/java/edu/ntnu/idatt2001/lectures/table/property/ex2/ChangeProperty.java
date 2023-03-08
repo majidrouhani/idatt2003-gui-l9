@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.table.property.ex3;
+package edu.ntnu.idatt2001.lectures.table.property.ex2;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

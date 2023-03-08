@@ -5,7 +5,7 @@ package edu.ntnu.idatt2001.lectures.table.property.ex1;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class SimpleObservable {
+public class SimpleObservableApp {
 
   private void noneObservable() {
     // No observable wrapper
@@ -36,7 +36,7 @@ public class SimpleObservable {
   }
 
   public static void main(String... args) {
-    SimpleObservable so = new SimpleObservable();
+    SimpleObservableApp so = new SimpleObservableApp();
     so.noneObservable();
     so.numberObservable();
   }
