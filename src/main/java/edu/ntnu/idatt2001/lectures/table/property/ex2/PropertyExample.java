@@ -2,7 +2,6 @@ package edu.ntnu.idatt2001.lectures.table.property.ex2;
 
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyDoubleProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
