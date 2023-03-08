@@ -33,7 +33,7 @@ public class ContactRegisterApp extends Application {
     tableView.setOnMouseClicked(mouseEvent -> {
       SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        System.out.println(selectedPerson.getLastname());
+        System.out.println(selectedPerson.getLastName());
       }
     });
 

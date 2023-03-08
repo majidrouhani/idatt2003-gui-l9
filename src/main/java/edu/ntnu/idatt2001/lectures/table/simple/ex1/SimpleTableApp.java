@@ -33,7 +33,7 @@ public class SimpleTableApp extends Application {
     tableView.setOnMouseClicked(mouseEvent -> {
       SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        System.out.println(selectedPerson.getLastname());
+        System.out.println(selectedPerson.getLastName());
       }
     });
 
@@ -41,6 +41,8 @@ public class SimpleTableApp extends Application {
   }
 
   private void createTable() {
+
+    tableView.setEditable(true);
 
     TableColumn<SimpleContact, String> col1 = new TableColumn<>("Firstname");
     col1.setCellValueFactory(new PropertyValueFactory<>("Firstname"));
@@ -54,6 +56,7 @@ public class SimpleTableApp extends Application {
     tableView.getColumns().add(col1);
     tableView.getColumns().add(col2);
     tableView.getColumns().add(col3);
+
 
   }
 
