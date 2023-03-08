@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class SimpleTableExampleNestedColumns extends Application {
+public class SimpleTableNestedColumnsApp extends Application {
 
   TableView<Contact> tableView = new TableView<Contact>();
 
@@ -44,11 +44,11 @@ public class SimpleTableExampleNestedColumns extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> col1 = new TableColumn<>("First Name");
-    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    TableColumn<Contact, String> col1 = new TableColumn<>("Firstname");
+    col1.setCellValueFactory(new PropertyValueFactory<>("firstname"));
 
-    TableColumn<Contact, String> col2 = new TableColumn<>("Last Name");
-    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    TableColumn<Contact, String> col2 = new TableColumn<>("Lastname");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
     TableColumn<Contact, String> col3 = new TableColumn<>("Email");
 

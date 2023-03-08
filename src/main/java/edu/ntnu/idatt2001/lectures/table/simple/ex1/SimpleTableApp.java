@@ -8,7 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class SimpleTableExample extends Application {
+public class SimpleTableApp extends Application {
 
   TableView<Contact> tableView = new TableView<>();
 
@@ -33,7 +33,7 @@ public class SimpleTableExample extends Application {
     tableView.setOnMouseClicked(mouseEvent -> {
       Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        System.out.println(selectedPerson.getLastName());
+        System.out.println(selectedPerson.getLastname());
       }
     });
 
@@ -42,11 +42,11 @@ public class SimpleTableExample extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> col1 = new TableColumn<>("First Name");
-    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    TableColumn<Contact, String> col1 = new TableColumn<>("Firstname");
+    col1.setCellValueFactory(new PropertyValueFactory<>("Firstname"));
 
-    TableColumn<Contact, String> col2 = new TableColumn<>("Last Name");
-    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    TableColumn<Contact, String> col2 = new TableColumn<>("Lastname");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
     TableColumn<Contact, String> col3 = new TableColumn<>("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
