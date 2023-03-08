@@ -3,6 +3,8 @@ package edu.ntnu.idatt2001.lectures.table.simple.ex5;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import edu.ntnu.idatt2001.lectures.table.simple.ex1.SimpleContact;
+
 /**
  * Represents an Address book containing contacts with contact details.
  * Based on the example in the book "Objects first with Java" by David J. Barnes
@@ -14,7 +16,7 @@ import java.util.Collection;
  * @version 2020.03.16
  */
 public class ContactRegister {
-  private Collection<Contact> contacts = null;
+  private Collection<SimpleContact> contacts = null;
 
   /**
    * Creates an instance of the ContactRegister, initialising the instance.
@@ -28,7 +30,7 @@ public class ContactRegister {
    *
    * @param contact The contact to be added.
    */
-  public void addContact(Contact contact) {
+  public void addContact(SimpleContact contact) {
     if (contact != null) {
       contacts.add(contact);
     }
@@ -39,7 +41,7 @@ public class ContactRegister {
    *
    * @return all the contacts as a collection.
    */
-  public Collection<Contact> getAllContacts() {
+  public Collection<SimpleContact> getAllContacts() {
     return this.contacts;
   }
 }

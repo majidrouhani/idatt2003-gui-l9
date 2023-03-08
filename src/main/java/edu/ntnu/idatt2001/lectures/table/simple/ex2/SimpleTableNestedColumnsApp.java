@@ -53,7 +53,7 @@ public class SimpleTableNestedColumnsApp extends Application {
     TableColumn<Contact, String> col3 = new TableColumn<>("Email");
 
     TableColumn<Contact, String> col31 = new TableColumn<>("Primary");
-    col31.setCellValueFactory(new PropertyValueFactory<>("primaryEmail"));
+    col31.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     TableColumn<Contact, String> col32 = new TableColumn<>("Secondary");
     col32.setCellValueFactory(new PropertyValueFactory<>("secondaryEmail"));

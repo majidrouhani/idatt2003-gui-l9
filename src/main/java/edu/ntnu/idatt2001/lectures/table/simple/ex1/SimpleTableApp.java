@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class SimpleTableApp extends Application {
 
-  TableView<Contact> tableView = new TableView<>();
+  TableView<SimpleContact> tableView = new TableView<>();
 
   public static void main(String[] args) {
     launch(args);
@@ -31,7 +31,7 @@ public class SimpleTableApp extends Application {
     primaryStage.setScene(scene);
 
     tableView.setOnMouseClicked(mouseEvent -> {
-      Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
+      SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
         System.out.println(selectedPerson.getLastname());
       }
@@ -42,13 +42,13 @@ public class SimpleTableApp extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> col1 = new TableColumn<>("Firstname");
+    TableColumn<SimpleContact, String> col1 = new TableColumn<>("Firstname");
     col1.setCellValueFactory(new PropertyValueFactory<>("Firstname"));
 
-    TableColumn<Contact, String> col2 = new TableColumn<>("Lastname");
+    TableColumn<SimpleContact, String> col2 = new TableColumn<>("Lastname");
     col2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
-    TableColumn<Contact, String> col3 = new TableColumn<>("Email");
+    TableColumn<SimpleContact, String> col3 = new TableColumn<>("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     tableView.getColumns().add(col1);
@@ -58,8 +58,8 @@ public class SimpleTableApp extends Application {
   }
 
   private void fillTable() {
-    tableView.getItems().add(new Contact("John", "Doe", "john.doe@hotmail.com"));
-    tableView.getItems().add(new Contact("Jane", "Deer", "jane.deere@hotmail.com"));
-    tableView.getItems().add(new Contact("Han", "Hansen", "hans.hansen@hotmail.com"));
+    tableView.getItems().add(new SimpleContact("John", "Doe", "john.doe@hotmail.com"));
+    tableView.getItems().add(new SimpleContact("Jane", "Deer", "jane.deere@hotmail.com"));
+    tableView.getItems().add(new SimpleContact("Han", "Hansen", "hans.hansen@hotmail.com"));
   }
 }

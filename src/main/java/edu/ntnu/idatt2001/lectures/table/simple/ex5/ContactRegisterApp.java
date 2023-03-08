@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex5;
 
+import edu.ntnu.idatt2001.lectures.table.simple.ex1.SimpleContact;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +16,7 @@ import javafx.stage.Stage;
 public class ContactRegisterApp extends Application {
   ContactRegister contactRegister = null;
 
-  TableView<Contact> tableView = new TableView<>();
+  TableView<SimpleContact> tableView = new TableView<>();
 
   public static void main(String[] args) {
     launch(args);
@@ -26,11 +27,11 @@ public class ContactRegisterApp extends Application {
 
     createTable();
 
-    ObservableList<Contact> contacts = getContacts();
+    ObservableList<SimpleContact> contacts = getContacts();
     tableView.setItems(contacts);
 
     tableView.setOnMouseClicked(mouseEvent -> {
-      Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
+      SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
         System.out.println(selectedPerson.getLastname());
       }
@@ -57,13 +58,13 @@ public class ContactRegisterApp extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> column1 = new TableColumn<>("Firstname");
+    TableColumn<SimpleContact, String> column1 = new TableColumn<>("Firstname");
     column1.setCellValueFactory(new PropertyValueFactory<>("firstname"));
 
-    TableColumn<Contact, String> column2 = new TableColumn<>("Lastname");
+    TableColumn<SimpleContact, String> column2 = new TableColumn<>("Lastname");
     column2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
-    TableColumn<Contact, String> column3 = new TableColumn<>("Email");
+    TableColumn<SimpleContact, String> column3 = new TableColumn<>("Email");
     column3.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     tableView.getColumns().add(column1);
@@ -72,7 +73,7 @@ public class ContactRegisterApp extends Application {
 
   }
 
-  private ObservableList<Contact> getContacts() {
+  private ObservableList<SimpleContact> getContacts() {
     return FXCollections.observableArrayList(this.contactRegister.getAllContacts());
   }
 
@@ -81,9 +82,9 @@ public class ContactRegisterApp extends Application {
     super.init();
 
     contactRegister = new ContactRegister();
-    contactRegister.addContact(new Contact("John", "Doe", "john.doe@hotmail.com"));
-    contactRegister.addContact(new Contact("Jane", "Deer", "jane.deere@hotmail.com"));
-    contactRegister.addContact(new Contact("Han", "Hansen", "hans.hansen@hotmail.com"));
-    contactRegister.addContact(new Contact("Ola", "Nordmann", "ola.nordmann@hotmail.com"));
+    contactRegister.addContact(new SimpleContact("John", "Doe", "john.doe@hotmail.com"));
+    contactRegister.addContact(new SimpleContact("Jane", "Deer", "jane.deere@hotmail.com"));
+    contactRegister.addContact(new SimpleContact("Han", "Hansen", "hans.hansen@hotmail.com"));
+    contactRegister.addContact(new SimpleContact("Ola", "Nordmann", "ola.nordmann@hotmail.com"));
   }
 }

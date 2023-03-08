@@ -1,15 +1,15 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex1;
 
-public class Contact {
+public class SimpleContact {
 
   private String firstname = null;
   private String lastname = null;
   private String email = null;
 
-  public Contact() {
+  public SimpleContact() {
   }
 
-  public Contact(String firstname, String lastname, String email) {
+  public SimpleContact(String firstname, String lastname, String email) {
     this.firstname = firstname;
     this.lastname = lastname;
     this.setEmail(email);

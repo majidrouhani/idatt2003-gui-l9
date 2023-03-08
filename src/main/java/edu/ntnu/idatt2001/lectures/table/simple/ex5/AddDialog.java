@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex5;
 
+import edu.ntnu.idatt2001.lectures.table.simple.ex1.SimpleContact;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 
 public class AddDialog {
 
-  public void show(Stage primaryStage, ContactRegister contactRegister, ObservableList<Contact> contacts) {
+  public void show(Stage primaryStage, ContactRegister contactRegister, ObservableList<SimpleContact> contacts) {
 
     GridPane grid = new GridPane();
 
@@ -36,7 +37,7 @@ public class AddDialog {
 
     EventHandler<ActionEvent> eventAddContact = (ActionEvent e) -> {
 
-            contactRegister.addContact(new Contact(firstname.getText(), lastname.getText(), email.getText()));
+            contactRegister.addContact(new SimpleContact(firstname.getText(), lastname.getText(), email.getText()));
             
             contacts.setAll(contactRegister.getAllContacts());
             Node source = (Node) e.getSource();
