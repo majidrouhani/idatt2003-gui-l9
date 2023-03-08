@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex3;
 
+import edu.ntnu.idatt2001.lectures.table.simple.ex1.Contact;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -33,7 +34,7 @@ public class ContactRegisterApp extends Application {
     tableView.setOnMouseClicked(mouseEvent -> {
       Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        System.out.println(selectedPerson.getLastName());
+        System.out.println(selectedPerson.getLastname());
 
         tableView.getItems().add(new Contact("Kristina", "Hansen", "kristina.hansen@mail.com"));
       }
@@ -52,11 +53,11 @@ public class ContactRegisterApp extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> column1 = new TableColumn<>("First Name");
-    column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    TableColumn<Contact, String> column1 = new TableColumn<>("Firstname");
+    column1.setCellValueFactory(new PropertyValueFactory<>("firstname"));
 
-    TableColumn<Contact, String> column2 = new TableColumn<>("Last Name");
-    column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    TableColumn<Contact, String> column2 = new TableColumn<>("Lastname");
+    column2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
 
     TableColumn<Contact, String> column3 = new TableColumn<>("Email");
     column3.setCellValueFactory(new PropertyValueFactory<>("email"));

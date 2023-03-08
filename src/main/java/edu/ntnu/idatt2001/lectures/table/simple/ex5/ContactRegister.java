@@ -1,9 +1,7 @@
-package edu.ntnu.idatt2001.lectures.table.simple.ex4;
+package edu.ntnu.idatt2001.lectures.table.simple.ex5;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
-import edu.ntnu.idatt2001.lectures.table.simple.ex1.Contact;
 
 /**
  * Represents an Address book containing contacts with contact details.
@@ -43,14 +41,5 @@ public class ContactRegister {
    */
   public Collection<Contact> getAllContacts() {
     return this.contacts;
-  }
-
-  /**
-   * Add all contact to the contact register.
-   *
-   * @param contacts all new contacts.
-   */
-  public void updateAllContacts(Collection<Contact> contacts) {
-    this.contacts = contacts;
   }
 }

@@ -3,6 +3,8 @@ package edu.ntnu.idatt2001.lectures.table.simple.ex3;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import edu.ntnu.idatt2001.lectures.table.simple.ex1.Contact;
+
 /**
  * Represents an Address book containing contacts with contact details.
  * Based on the example in the book "Objects first with Java" by David J. Barnes

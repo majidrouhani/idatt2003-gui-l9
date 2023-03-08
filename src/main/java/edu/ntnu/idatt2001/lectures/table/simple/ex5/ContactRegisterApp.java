@@ -1,11 +1,11 @@
-package edu.ntnu.idatt2001.lectures.table.simple.ex4;
+package edu.ntnu.idatt2001.lectures.table.simple.ex5;
 
-import edu.ntnu.idatt2001.lectures.table.simple.ex1.Contact;
 import javafx.application.Application;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,26 +26,28 @@ public class ContactRegisterApp extends Application {
 
     createTable();
 
-    ObservableList<Contact> list = getContacts();
-    list.addListener((Observable observable) -> {
-      System.out.println("List is synchronized");
-      contactRegister.updateAllContacts(list);
-    });
-
-    tableView.setItems(list);
+    ObservableList<Contact> contacts = getContacts();
+    tableView.setItems(contacts);
 
     tableView.setOnMouseClicked(mouseEvent -> {
       Contact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        tableView.getItems().add(new Contact("Kristina", "Hansen", "kristina.hansen@mail.com"));
-        System.out.println("Number of contacts in the register: " + contactRegister.getAllContacts().size());
-        System.out.println("Number of contacts in the list: " + tableView.getItems().size());
+        System.out.println(selectedPerson.getLastname());
       }
     });
+
 
     BorderPane root = new BorderPane();
 
     root.setCenter(tableView);
+
+    Button btn = new Button();
+    btn.setText("Add");
+    btn.setOnAction((ActionEvent event) -> {
+      new AddDialog().show(primaryStage, contactRegister, contacts);
+    });
+
+    root.setBottom(btn);  
 
     Scene scene = new Scene(root, 310, 250);
     primaryStage.setScene(scene);
