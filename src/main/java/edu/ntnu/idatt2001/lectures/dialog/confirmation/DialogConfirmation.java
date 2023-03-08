@@ -7,7 +7,6 @@
 
 package edu.ntnu.idatt2001.lectures.dialog.confirmation;
 
-import edu.ntnu.idatt2001.lectures.dialog.MainController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;

@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.dialog;
+package edu.ntnu.idatt2001.lectures.dialog.confirmation;
 
 import java.util.Optional;
 

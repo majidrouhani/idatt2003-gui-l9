@@ -8,7 +8,7 @@ public class ExampleOptional2 {
     String[] str = new String[10];
     str[5] = "JAVA OPTIONAL CLASS EXAMPLE";
     Optional<String> checkNull = Optional.ofNullable(str[5]);
-    checkNull.ifPresent(p -> System.out.println(p));
+    checkNull.ifPresent(System.out::println);
 
     System.out.println(checkNull.get());
   }
