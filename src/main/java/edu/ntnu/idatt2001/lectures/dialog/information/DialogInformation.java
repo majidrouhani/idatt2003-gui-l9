@@ -3,14 +3,15 @@
 
 package edu.ntnu.idatt2001.lectures.dialog.information;
 
+import edu.ntnu.idatt2001.lectures.dialog.controller.MainDialogController;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DialogInformation extends Application {
@@ -22,24 +23,55 @@ public class DialogInformation extends Application {
   @Override
   public void start(Stage primaryStage) {
     primaryStage.setTitle("My first stage with scene");
-    Button btn = new Button();
-    btn.setText("Say 'Hello World'");
 
-    
-    EventHandler<ActionEvent> eventHandler = (ActionEvent event) -> {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
-        alert.setContentText("I have a great message for you!");
-        alert.showAndWait();
-    };
-    
-    btn.setOnAction(eventHandler);
+    VBox vbox = new VBox();
+    MenuBar mainMenu = createMenus();
 
-    StackPane root = new StackPane();
-    root.getChildren().add(btn);
+    vbox.getChildren().add(mainMenu);
+
+    BorderPane root  = new BorderPane();
+
+    root.setTop(vbox);
 
     primaryStage.setScene(new Scene(root, 300, 250));
     primaryStage.show();
   }
+
+  /**
+   * Creates the menus to be displayed.
+   */
+  private MenuBar createMenus() {
+    // Create the Menu Bar to hold all the menus
+    MenuBar menuBar = new MenuBar();
+
+    // The File-menu
+    Menu fileMenu = new Menu("File");
+    MenuItem fileOpen = new MenuItem("Open");
+    MenuItem filePrint = new MenuItem("Print");
+    filePrint.setDisable(true);
+    MenuItem fileExit = new MenuItem("Exit");
+    fileExit.setOnAction(MainDialogController::exit);
+
+    fileMenu.getItems().add(fileOpen);
+    fileMenu.getItems().add(filePrint);
+    fileMenu.getItems().add(new SeparatorMenuItem());
+    fileMenu.getItems().add(fileExit);
+
+    // The Edit-menu
+    Menu editMenu = new Menu("Edit");
+
+    // The View-menu
+    Menu viewMenu = new Menu("View");
+
+    // The View-menu
+    Menu helpMenu = new Menu("Help");
+    MenuItem helpAbout = new MenuItem("About");
+    helpAbout.setOnAction(MainDialogController::about);
+    helpMenu.getItems().addAll(helpAbout);
+
+    menuBar.getMenus().addAll(fileMenu, editMenu, viewMenu, helpMenu);
+
+    return menuBar;
+  }
+
 }

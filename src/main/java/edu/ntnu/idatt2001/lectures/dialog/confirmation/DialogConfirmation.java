@@ -7,6 +7,7 @@
 
 package edu.ntnu.idatt2001.lectures.dialog.confirmation;
 
+import edu.ntnu.idatt2001.lectures.dialog.controller.MainDialogController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -18,8 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DialogConfirmation extends Application {
-  private MainController mainController;
-
   public static void main(String[] args) {
     launch(args);
   }
@@ -42,14 +41,6 @@ public class DialogConfirmation extends Application {
     primaryStage.show();
   }
 
-  @Override
-  public void init() throws Exception {
-    super.init();
-
-    // Initialise the main controller
-    this.mainController = new MainController();
-  }
-
   /**
    * Creates the menus to be displayed.
    */
@@ -63,7 +54,7 @@ public class DialogConfirmation extends Application {
     MenuItem filePrint = new MenuItem("Print");
     filePrint.setDisable(true);
     MenuItem fileExit = new MenuItem("Exit");
-    fileExit.setOnAction(event -> mainController.exit(event));
+    fileExit.setOnAction(MainDialogController::exit);
 
     menu.getItems().add(fileOpen);
     menu.getItems().add(filePrint);
