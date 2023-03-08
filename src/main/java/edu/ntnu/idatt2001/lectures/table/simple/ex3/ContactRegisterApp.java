@@ -36,7 +36,7 @@ public class ContactRegisterApp extends Application {
       if (selectedPerson != null) {
         System.out.println(selectedPerson.getLastname());
 
-        tableView.getItems().add(new SimpleContact("Kristina", "Hansen", "kristina.hansen@mail.com"));
+        tableView.getItems().add(SimpleContact.dummyContact());
       }
     });
 

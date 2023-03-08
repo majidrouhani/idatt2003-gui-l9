@@ -38,4 +38,8 @@ public class SimpleContact {
   public void setEmail(String email) {
     this.email = email;
   }
+
+  public static SimpleContact dummyContact() {
+    return new SimpleContact("Firstname", "Lastname","firstname.lastname@email.com");
+  }
 }

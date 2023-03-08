@@ -27,9 +27,10 @@ public class ContactRegisterApp extends Application {
     createTable();
 
     ObservableList<SimpleContact> list = getContacts();
+
     list.addListener((Observable observable) -> {
-      System.out.println("List is synchronized");
       contactRegister.updateAllContacts(list);
+      System.out.println("List is synchronized");
     });
 
     tableView.setItems(list);
@@ -37,7 +38,7 @@ public class ContactRegisterApp extends Application {
     tableView.setOnMouseClicked(mouseEvent -> {
       SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        tableView.getItems().add(new SimpleContact("Kristina", "Hansen", "kristina.hansen@mail.com"));
+        tableView.getItems().add(SimpleContact.dummyContact());
         System.out.println("Number of contacts in the register: " + contactRegister.getAllContacts().size());
         System.out.println("Number of contacts in the list: " + tableView.getItems().size());
       }
