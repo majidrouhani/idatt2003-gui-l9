@@ -36,7 +36,6 @@ public class ChangeProperty {
   }
 
   public static void changed(ObservableValue<? extends Number> prop, Number oldValue, Number newValue) {
-    System.out.print("Counter changed: ");
-    System.out.println("Old = " + oldValue + ", new = " + newValue);
+    System.out.print("Counter changed: old = " + oldValue + ", new = " + newValue);
   }
 }

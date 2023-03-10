@@ -26,13 +26,19 @@ public class SimpleObservableApp {
     SimpleIntegerProperty a = new SimpleIntegerProperty(10);
     SimpleIntegerProperty b = new SimpleIntegerProperty(10);
     NumberBinding sum = a.add(b);
+    NumberBinding multiply = a.multiply(b);
+    NumberBinding subtract = a.subtract(b);
 
+    
     System.out.println("\nObservable numbers:");
     System.out.println(String.format("value of %s + %s = %s",a.getValue(),b.getValue(),sum.getValue()));
 
     a.setValue(30);
 
+    
     System.out.println(String.format("value of %s + %s = %s",a.getValue(),b.getValue(),sum.getValue()));
+    System.out.println(String.format("value of %s * %s = %s",a.getValue(),b.getValue(),multiply.getValue()));
+    System.out.println(String.format("value of %s - %s = %s",a.getValue(),b.getValue(),subtract.getValue()));
   }
 
   public static void main(String... args) {
