@@ -58,15 +58,12 @@ public class PropertyExampleApp extends Application {
     widthProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> {
       Double delta = newVal.doubleValue() - oldVal.doubleValue();
       double newWidth = delta == newVal.doubleValue() ? 0: delta;
-      System.out.println("delta: " + newWidth);
       box.setWidth(box.getWidth() + newWidth);
     });
 
     hightProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> {
       Double delta = newVal.doubleValue() - oldVal.doubleValue();
-
       double newHeight = delta == newVal.doubleValue() ? 0: delta;
-      System.out.println("delta: " + newHeight);
       box.setHeight(box.getHeight() + newHeight);
     });
 
