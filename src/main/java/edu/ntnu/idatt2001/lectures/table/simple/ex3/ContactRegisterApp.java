@@ -53,11 +53,11 @@ public class ContactRegisterApp extends Application {
 
   private void createTable() {
 
-    TableColumn<SimpleContact, String> column1 = new TableColumn<>("Firstname");
-    column1.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+    TableColumn<SimpleContact, String> column1 = new TableColumn<>("First Name");
+    column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-    TableColumn<SimpleContact, String> column2 = new TableColumn<>("Lastname");
-    column2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+    TableColumn<SimpleContact, String> column2 = new TableColumn<>("Last Name");
+    column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
     TableColumn<SimpleContact, String> column3 = new TableColumn<>("Email");
     column3.setCellValueFactory(new PropertyValueFactory<>("email"));

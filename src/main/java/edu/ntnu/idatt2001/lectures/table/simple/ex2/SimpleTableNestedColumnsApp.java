@@ -44,11 +44,11 @@ public class SimpleTableNestedColumnsApp extends Application {
 
   private void createTable() {
 
-    TableColumn<Contact, String> col1 = new TableColumn<>("Firstname");
-    col1.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+    TableColumn<Contact, String> col1 = new TableColumn<>("First Name");
+    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-    TableColumn<Contact, String> col2 = new TableColumn<>("Lastname");
-    col2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+    TableColumn<Contact, String> col2 = new TableColumn<>("Last Name");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
     TableColumn<Contact, String> col3 = new TableColumn<>("Email");
 
@@ -68,8 +68,7 @@ public class SimpleTableNestedColumnsApp extends Application {
   }
 
   private void fillTable() {
-    tableView.getItems().add(new Contact("John", "Doe", "john.doe@hotmail.com","john.doe@gmail.com"));
-    
+    tableView.getItems().add(new Contact("John", "Doe", "john.doe@hotmail.com","john.doe@gmail.com"));    
     tableView.getItems().add(new Contact("Jane", "Deer", "jane.deere@hotmail.com","jane.deere@gmail.com"));
     tableView.getItems().add(new Contact("Han", "Hansen", "hans.hansen@hotmail.com", "hans.hansen@gmail.com"));
   }

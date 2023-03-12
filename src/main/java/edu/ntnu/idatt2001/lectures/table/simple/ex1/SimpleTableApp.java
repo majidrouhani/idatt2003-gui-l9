@@ -44,11 +44,11 @@ public class SimpleTableApp extends Application {
 
     tableView.setEditable(true);
 
-    TableColumn<SimpleContact, String> col1 = new TableColumn<>("Firstname");
-    col1.setCellValueFactory(new PropertyValueFactory<>("Firstname"));
+    TableColumn<SimpleContact, String> col1 = new TableColumn<>("First Name");
+    col1.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
 
-    TableColumn<SimpleContact, String> col2 = new TableColumn<>("Lastname");
-    col2.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+    TableColumn<SimpleContact, String> col2 = new TableColumn<>("Last Name");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
     TableColumn<SimpleContact, String> col3 = new TableColumn<>("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -57,12 +57,11 @@ public class SimpleTableApp extends Application {
     tableView.getColumns().add(col2);
     tableView.getColumns().add(col3);
 
-
   }
 
   private void fillTable() {
     tableView.getItems().add(new SimpleContact("John", "Doe", "john.doe@hotmail.com"));
-    tableView.getItems().add(new SimpleContact("Jane", "Deer", "jane.deere@hotmail.com"));
-    tableView.getItems().add(new SimpleContact("Han", "Hansen", "hans.hansen@hotmail.com"));
+    tableView.getItems().add(new SimpleContact("Jane", "Deer", "jane.deer@hotmail.com"));
+    tableView.getItems().add(new SimpleContact("Hans", "Hansen", "hans.hansen@hotmail.com"));
   }
 }

@@ -1,15 +1,14 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex1;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class SimpleContact {
 
-  private SimpleStringProperty firstName = new SimpleStringProperty();
-  private SimpleStringProperty lastName = new SimpleStringProperty();
-  private SimpleStringProperty email = new SimpleStringProperty();
+  private StringProperty firstName = new SimpleStringProperty();
+  private StringProperty lastName = new SimpleStringProperty();
+  private StringProperty email = new SimpleStringProperty();
 
-  public SimpleContact() {
-  }
 
   public SimpleContact(String firstName, String lastName, String email) {
     this.firstName.set(firstName);
@@ -17,31 +16,43 @@ public class SimpleContact {
     this.email.set(email);
   }
 
-  public String getFirstName() {
+  public final String getFirstName() {
     return firstName.get();
   }
 
-  public void setFirstname(String firstName) {
-    this.firstName.set(firstName);
+  public final void setFirstname(String value) {
+    this.firstName.set(value);
   }
 
-  public String getLastName() {
+  public final String getLastName() {
     return lastName.get();
   }
 
-  public void setLastname(String lastName) {
-    this.lastName.set(lastName);
+  public final void setLastname(String value) {
+    this.lastName.set(value);
   }
 
-  public String getEmail() {
+  public final String getEmail() {
     return email.get();
   }
 
-  public void setEmail(String email) {
-    this.email.set(email);
+  public final void setEmail(String value) {
+    this.email.set(value);
+  }
+
+  public StringProperty firstNameProperty() {
+    return firstName;
+  }
+
+  public StringProperty lastNameProperty() {
+    return lastName;
+  }
+
+  public StringProperty emailProperty() {
+    return email;
   }
 
   public static SimpleContact dummyContact() {
-    return new SimpleContact("Firstname", "Lastname","firstname.lastname@email.com");
+    return new SimpleContact("Dummy first name", "Dummy last name", "Dummy email");
   }
 }
