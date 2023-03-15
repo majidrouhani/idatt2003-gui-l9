@@ -19,7 +19,9 @@ public class MainDialogController {
     alert.setContentText("Do you want to close the application?");
 
     Optional<ButtonType> result = alert.showAndWait();
-    if (result.get() == ButtonType.OK) {
+
+    
+    if (result.isPresent() && result.get() == ButtonType.OK) {
       Platform.exit();
     }
   }

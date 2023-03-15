@@ -27,7 +27,7 @@ public class DialogCustom extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("My first stage with scene");
     Button btn = new Button();
-    btn.setText("Say 'Hello World'");
+    btn.setText("Show alert");
 
     EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
       @Override
