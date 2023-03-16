@@ -26,10 +26,10 @@ public class ContactRegisterApp extends Application {
 
     createTable();
 
-    ObservableList<SimpleContact> list = getContacts();
-    list.addListener((Observable observable) -> System.out.println("List is invalidated"));
+    ObservableList<SimpleContact> contacts = getContacts();
+    contacts.addListener((Observable observable) -> System.out.println("List is invalidated"));
 
-    tableView.setItems(list);
+    tableView.setItems(contacts);
 
     tableView.setOnMouseClicked(mouseEvent -> {
       SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
