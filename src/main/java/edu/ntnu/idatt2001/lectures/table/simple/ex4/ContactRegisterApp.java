@@ -5,7 +5,9 @@ import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,25 +28,31 @@ public class ContactRegisterApp extends Application {
 
     createTable();
 
-    ObservableList<SimpleContact> list = getContacts();
+    ObservableList<SimpleContact> contacts = getContacts();
 
-    list.addListener((Observable observable) -> {
-      contactRegister.updateAllContacts(list);
+    contacts.addListener((Observable observable) -> {
+      contactRegister.updateAllContacts(contacts);
       System.out.println("List is synchronized");
     });
 
-    tableView.setItems(list);
+    tableView.setItems(contacts);
 
     tableView.setOnMouseClicked(mouseEvent -> {
       SimpleContact selectedPerson = tableView.getSelectionModel().getSelectedItem();
       if (selectedPerson != null) {
-        tableView.getItems().add(SimpleContact.dummyContact());
-        System.out.println("Number of contacts in the register: " + contactRegister.getAllContacts().size());
-        System.out.println("Number of contacts in the list: " + tableView.getItems().size());
+        System.out.println(selectedPerson.getLastName());
       }
     });
-
+    
     BorderPane root = new BorderPane();
+
+    Button btn = new Button();
+    btn.setText("Add");
+    btn.setOnAction((ActionEvent event) -> {
+      new AddDialog().show(primaryStage, contactRegister, contacts);
+    });
+
+    root.setBottom(btn);
 
     root.setCenter(tableView);
 

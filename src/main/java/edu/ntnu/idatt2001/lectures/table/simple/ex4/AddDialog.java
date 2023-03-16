@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2001.lectures.table.simple.ex5;
+package edu.ntnu.idatt2001.lectures.table.simple.ex4;
 
 import edu.ntnu.idatt2001.lectures.table.simple.ex1.SimpleContact;
 import javafx.collections.ObservableList;
