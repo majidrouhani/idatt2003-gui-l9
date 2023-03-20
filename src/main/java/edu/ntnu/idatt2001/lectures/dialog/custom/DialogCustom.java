@@ -29,7 +29,7 @@ public class DialogCustom extends Application {
     Button btn = new Button();
     btn.setText("Show alert");
 
-    EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> eventHandler = new EventHandler<>() {
       @Override
       public void handle(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);

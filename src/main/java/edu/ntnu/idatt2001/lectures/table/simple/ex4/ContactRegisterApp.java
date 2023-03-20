@@ -31,8 +31,9 @@ public class ContactRegisterApp extends Application {
     ObservableList<SimpleContact> contacts = getContacts();
 
     contacts.addListener((Observable observable) -> {
-      contactRegister.updateAllContacts(contacts);
-      System.out.println("List is synchronized");
+      //contactRegister.updateAllContacts(contacts);
+      System.out.println("Contactregister size: "+this.contactRegister.getAllContacts().size());
+      System.out.println("Tableview size: "+this.tableView.getItems().size());
     });
 
     tableView.setItems(contacts);
@@ -87,7 +88,7 @@ public class ContactRegisterApp extends Application {
   public void init() throws Exception {
     super.init();
 
-    contactRegister = new ContactRegister();
+    contactRegister = new ContactRegister(this.tableView.getItems());
     contactRegister.addContact(new SimpleContact("John", "Doe", "john.doe@hotmail.com"));
     contactRegister.addContact(new SimpleContact("Jane", "Deer", "jane.deere@hotmail.com"));
     contactRegister.addContact(new SimpleContact("Han", "Hansen", "hans.hansen@hotmail.com"));

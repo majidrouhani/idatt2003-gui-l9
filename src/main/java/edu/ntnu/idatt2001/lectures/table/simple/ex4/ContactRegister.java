@@ -1,6 +1,5 @@
 package edu.ntnu.idatt2001.lectures.table.simple.ex4;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import edu.ntnu.idatt2001.lectures.table.simple.ex1.SimpleContact;
@@ -21,8 +20,8 @@ public class ContactRegister {
   /**
    * Creates an instance of the ContactRegister, initialising the instance.
    */
-  public ContactRegister() {
-    contacts = new ArrayList<>();
+  public ContactRegister(Collection<SimpleContact> contacts) {
+    this.contacts = contacts;
   }
 
   /**
@@ -50,7 +49,7 @@ public class ContactRegister {
    *
    * @param contacts all new contacts.
    */
-  public void updateAllContacts(Collection<SimpleContact> contacts) {
-    this.contacts = contacts;
-  }
+  //public void updateAllContacts(Collection<SimpleContact> contacts) {
+  //  this.contacts = contacts;
+  //}
 }
