@@ -24,5 +24,4 @@ public class Contact extends SimpleContact{
   public StringProperty secondaryEmailProperty() {
     return secondaryEmail;
   }
-
 }

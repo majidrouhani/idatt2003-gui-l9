@@ -1,6 +1,9 @@
 package edu.ntnu.idatt2003.lectures.table.simple.ex3;
 
+import java.util.List;
+
 import edu.ntnu.idatt2003.lectures.table.simple.ex1.SimpleContact;
+import edu.ntnu.idatt2003.lectures.table.simple.ex2.Contact;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -53,19 +56,17 @@ public class ContactRegisterApp extends Application {
 
   private void createTable() {
 
-    TableColumn<SimpleContact, String> column1 = new TableColumn<>("First Name");
-    column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    TableColumn<SimpleContact, String> col1 = new TableColumn<>("First Name");
+    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-    TableColumn<SimpleContact, String> column2 = new TableColumn<>("Last Name");
-    column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    TableColumn<SimpleContact, String> col2 = new TableColumn<>("Last Name");
+    col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
-    TableColumn<SimpleContact, String> column3 = new TableColumn<>("Email");
-    column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+    TableColumn<SimpleContact, String> col3 = new TableColumn<>("Email");
+    col3.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-    tableView.getColumns().add(column1);
-    tableView.getColumns().add(column2);
-    tableView.getColumns().add(column3);
-
+    List<TableColumn<SimpleContact, ?>> columns = List.of(col1, col2, col3);
+    tableView.getColumns().addAll(columns);    
   }
 
   private ObservableList<SimpleContact> getContacts() {

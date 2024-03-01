@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2003.lectures.table.simple.ex1;
 
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -47,24 +49,32 @@ public class SimpleTableApp extends Application {
 
     tableView.setEditable(true);
 
-    TableColumn<SimpleContact, String> col1 = new TableColumn<>("First Name");
-    col1.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+    TableColumn<SimpleContact, String> col1 = new TableColumn<>();
+    col1.setText("First Name");
+    col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
 
-    TableColumn<SimpleContact, String> col2 = new TableColumn<>("Last Name");
+    TableColumn<SimpleContact, String> col2 = new TableColumn<>();
+    col2.setText("Last Name");
     col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
 
-    TableColumn<SimpleContact, String> col3 = new TableColumn<>("Email");
+    TableColumn<SimpleContact, String> col3 = new TableColumn<>();
+    col3.setText("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-    tableView.getColumns().add(col1);
-    tableView.getColumns().add(col2);
-    tableView.getColumns().add(col3);
-
+    List<TableColumn<SimpleContact, ?>> columns = List.of(col1, col2, col3);
+    tableView.getColumns().addAll(columns);    
   }
 
   private void fillTable() {
-    tableView.getItems().add(new SimpleContact("John", "Doe", "john.doe@hotmail.com"));
-    tableView.getItems().add(new SimpleContact("Jane", "Deer", "jane.deer@hotmail.com"));
-    tableView.getItems().add(new SimpleContact("Hans", "Hansen", "hans.hansen@hotmail.com"));
+    List<SimpleContact> contacts = List.of(
+      new SimpleContact("John", "Doe", "john.doe@gmail"),
+      new SimpleContact("Jane", "Deer", "jane.deer@gmail"),
+      new SimpleContact("Hans", "Hansen", "hans.hansen@gmail"),
+      new SimpleContact("Ola", "Nordmann", "ola.nordmann@gmail"),
+      new SimpleContact("Sara", "Svensson", "sara.svensson@gmail"),
+      new SimpleContact("Hanna", "Hansson", "hanna.hansson@gmail")
+    );
+    
+    tableView.getItems().addAll(contacts);
   }
 }

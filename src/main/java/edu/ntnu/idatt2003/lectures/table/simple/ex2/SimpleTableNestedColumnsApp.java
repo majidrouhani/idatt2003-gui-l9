@@ -2,6 +2,8 @@
 
 package edu.ntnu.idatt2003.lectures.table.simple.ex2;
 
+import java.util.List;
+
 import edu.ntnu.idatt2003.lectures.table.simple.ex1.SimpleContact;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -61,19 +63,22 @@ public class SimpleTableNestedColumnsApp extends Application {
 
     TableColumn<Contact, String> col32 = new TableColumn<>("Secondary");
     col32.setCellValueFactory(new PropertyValueFactory<>("secondaryEmail"));
-    
+
     col3.getColumns().add(col31);
     col3.getColumns().add(col32);
-        
-    tableView.getColumns().add(col1);
-    tableView.getColumns().add(col2);
-    tableView.getColumns().add(col3);
 
+    List<TableColumn<Contact, ?>> columns = List.of(col1, col2, col3);
+    tableView.getColumns().addAll(columns);    
   }
 
   private void fillTable() {
-    tableView.getItems().add(new Contact("John", "Doe", "john.doe@hotmail.com","john.doe@gmail.com"));    
-    tableView.getItems().add(new Contact("Jane", "Deer", "jane.deere@hotmail.com","jane.deere@gmail.com"));
-    tableView.getItems().add(new Contact("Han", "Hansen", "hans.hansen@hotmail.com", "hans.hansen@gmail.com"));
+    List<Contact> contacts = List.of(
+      new Contact("John", "Doe", "john.doe@hotmail.com","john.doe@gmail.com"),
+      new Contact("Jane", "Deer", "jane.deere@hotmail.com","jane.deere@gmail.com"),
+      new Contact("Han", "Hansen", "hans.hansen@gmail.com", "hans.hansen@gmail.com"),
+      new Contact("Ola", "Nordmann", "ola.nordmann@gmail.com", "ola.nordmann@gmail.com"),
+      new Contact("Sara", "Svensson", "sara.svensson@gmail.com", "sara.svensson@gmail.com")
+    );
+    tableView.getItems().addAll(contacts);
   }
 }
