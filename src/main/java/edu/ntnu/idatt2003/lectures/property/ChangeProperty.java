@@ -8,6 +8,7 @@ public class ChangeProperty {
   public static void main(String[] args) {
     int x = 100;
 
+    // Create an observable property
     IntegerProperty counter = new SimpleIntegerProperty(x);
 
     // Add a change listener to the counter property
