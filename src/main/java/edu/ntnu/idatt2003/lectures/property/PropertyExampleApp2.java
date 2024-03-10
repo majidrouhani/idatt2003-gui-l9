@@ -1,4 +1,4 @@
-package edu.ntnu.idatt2003.lectures.property.ex4;
+package edu.ntnu.idatt2003.lectures.property;
 
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -13,7 +13,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class PropertyExampleApp extends Application {
+public class PropertyExampleApp2 extends Application {
 
   public static void main(String[] args) {
     launch(args);

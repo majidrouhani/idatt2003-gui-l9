@@ -1,6 +1,6 @@
 //VM argument: --module-path "C:\JavaFX\javafx-sdk-17.0.2\lib" --add-modules=javafx.controls
 
-package edu.ntnu.idatt2003.lectures.observable;
+package edu.ntnu.idatt2003.lectures.table.observable;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;

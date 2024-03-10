@@ -3,7 +3,6 @@ package edu.ntnu.idatt2003.lectures.table.simple.ex3;
 import java.util.List;
 
 import edu.ntnu.idatt2003.lectures.table.simple.ex1.SimpleContact;
-import edu.ntnu.idatt2003.lectures.table.simple.ex2.Contact;
 import javafx.application.Application;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;

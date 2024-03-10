@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -47,11 +48,15 @@ public class SimpleTableApp extends Application {
 
   private void createTable() {
 
-    tableView.setEditable(true);
-
     TableColumn<SimpleContact, String> col1 = new TableColumn<>();
     col1.setText("First Name");
     col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    col1.setCellFactory(TextFieldTableCell.forTableColumn());
+        col1.setOnEditCommit(event -> {
+            SimpleContact person = event.getRowValue();
+            person.firstNameProperty().setValue(event.getNewValue());
+        });
+
 
     TableColumn<SimpleContact, String> col2 = new TableColumn<>();
     col2.setText("Last Name");
@@ -63,6 +68,8 @@ public class SimpleTableApp extends Application {
 
     List<TableColumn<SimpleContact, ?>> columns = List.of(col1, col2, col3);
     tableView.getColumns().addAll(columns);    
+
+    tableView.setEditable(true);
   }
 
   private void fillTable() {
