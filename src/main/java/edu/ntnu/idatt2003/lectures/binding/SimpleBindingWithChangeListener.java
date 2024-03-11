@@ -1,8 +1,9 @@
 package edu.ntnu.idatt2003.lectures.binding;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 
-public class SimpleBinding {
+public class SimpleBindingWithChangeListener {
 
     public static void main(String[] args) {
 
@@ -10,6 +11,10 @@ public class SimpleBinding {
         SimpleStringProperty property1 = new SimpleStringProperty("Ola");
         SimpleStringProperty property2 = new SimpleStringProperty("Martin");
 
+        // Add change listener to property1
+        property1.addListener(SimpleBindingWithChangeListener::changed);
+        
+        
         // Print properties
         System.out.println(property1.get() + " " + property2.get());
 
@@ -40,5 +45,9 @@ public class SimpleBinding {
         // change property2
         property2.set("Hansen");
         System.out.println(property1.get() + " " + property2.get());
+    }
+
+    public static void changed(ObservableValue<? extends String> prop, String oldValue, String newValue) {
+        System.out.print("Property changed: old = " + oldValue + ", new = " + newValue);
     }
 }

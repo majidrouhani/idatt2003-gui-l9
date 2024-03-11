@@ -12,7 +12,7 @@ public class ChangeProperty {
     IntegerProperty counter = new SimpleIntegerProperty(x);
 
     // Add a change listener to the counter property
-    counter.addListener(ChangeProperty::changed);
+    counter.addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> changed(observable, oldValue, newValue));
 
     System.out.println(x);
     counter.set(x);

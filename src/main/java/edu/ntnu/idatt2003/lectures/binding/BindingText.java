@@ -24,26 +24,21 @@ public class BindingText extends Application {
   public void start(Stage primaryStage) {
     primaryStage.setTitle("My first stage with scene");
 
-    TextField text1 = new TextField("First name");
-    text1.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    // Create text fields
+    TextField firstName = new TextField("First name");
+    TextField lastName = new TextField("Last name");
+    TextField emailDomain = new TextField("Email domain");
+    TextArea email = new TextArea();
 
-    TextField text2 = new TextField("Last name");
-    text2.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+    // Bind text fields
+    email.textProperty().bind(Bindings.concat(firstName.textProperty(),".",lastName.textProperty(),"@",emailDomain.textProperty()));
 
-    TextField text3 = new TextField("domain");
-    text3.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-
-
-    TextArea textArea = new TextArea();
-    textArea.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
-
-    textArea.textProperty().bind(Bindings.concat(text1.textProperty(),".",text2.textProperty(),"@",text3.textProperty()));
-
+    // Add text fields to scene
     VBox root = new VBox();
-    root.getChildren().addAll(text1);
-    root.getChildren().addAll(text2);
-    root.getChildren().addAll(text3);
-    root.getChildren().addAll(textArea);
+    root.getChildren().addAll(firstName);
+    root.getChildren().addAll(lastName);
+    root.getChildren().addAll(emailDomain);
+    root.getChildren().addAll(email);
 
     primaryStage.setScene(new Scene(root, 400, 250));
     primaryStage.show();

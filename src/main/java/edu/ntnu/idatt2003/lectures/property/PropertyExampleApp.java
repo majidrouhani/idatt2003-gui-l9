@@ -21,11 +21,11 @@ public class PropertyExampleApp extends Application {
     ReadOnlyDoubleProperty hightProperty = pane.heightProperty();
 
     widthProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> 
-      System.out.println("widthProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue())
+      System.out.println("widthProperty changed from " + oldVal.intValue() + " to " + newVal.intValue())
     );
 
     hightProperty.addListener((ObservableValue<? extends Number> observableValue, Number oldVal, Number newVal) -> 
-      System.out.println("hightProperty changed from " + oldVal.doubleValue() + " to " + newVal.doubleValue())
+      System.out.println("hightProperty changed from " + oldVal.intValue() + " to " + newVal.intValue())
     );
 
     Scene scene = new Scene(pane, 200, 200, true);

@@ -48,7 +48,7 @@ public class SimpleObservableApp {
     IntegerProperty c = new SimpleIntegerProperty(20);
     IntegerProperty d = new SimpleIntegerProperty(25);
 
-    NumberBinding result = Bindings.add(a.multiply(b), c.multiply(d));
+    NumberBinding result = Bindings.add(Bindings.multiply(a, b), Bindings.multiply(c, d));
 
     System.out.println(String.format("value of (%s * %s) + (%s * %s) = %s", a.getValue(), b.getValue(), c.getValue(),
         d.getValue(), result.getValue()));
