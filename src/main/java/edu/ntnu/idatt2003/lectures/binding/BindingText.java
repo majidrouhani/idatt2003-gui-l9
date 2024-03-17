@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class BindingText extends Application {
@@ -31,7 +29,8 @@ public class BindingText extends Application {
     TextArea email = new TextArea();
 
     // Bind text fields
-    email.textProperty().bind(Bindings.concat(firstName.textProperty(),".",lastName.textProperty(),"@",emailDomain.textProperty()));
+    email.textProperty()
+        .bind(Bindings.concat(firstName.textProperty(), ".", lastName.textProperty(), "@", emailDomain.textProperty()));
 
     // Add text fields to scene
     VBox root = new VBox();

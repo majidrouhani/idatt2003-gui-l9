@@ -14,7 +14,7 @@ public class ExampleOptional {
     Optional<String> checkNull = Optional.ofNullable(s);
 
     if (checkNull.isPresent()) {
-      String lowercaseString = checkNull.get();
+      String lowercaseString = checkNull.get().toLowerCase();
       System.out.println("The value is: " + lowercaseString);
     } else
       System.out.println("string value is not present");

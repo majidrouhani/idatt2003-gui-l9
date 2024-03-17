@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class PropertyExampleApp extends Application {
+public class PropertyExamplePaneApp extends Application {
 
   public static void main(String[] args) {
     launch(args);

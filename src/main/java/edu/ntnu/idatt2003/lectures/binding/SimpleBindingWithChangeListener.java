@@ -48,6 +48,6 @@ public class SimpleBindingWithChangeListener {
     }
 
     public static void changed(ObservableValue<? extends String> prop, String oldValue, String newValue) {
-        System.out.print("Property changed: old = " + oldValue + ", new = " + newValue);
+        System.out.println("Property changed: old = " + oldValue + ", new = " + newValue);
     }
 }

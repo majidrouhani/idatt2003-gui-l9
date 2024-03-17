@@ -13,7 +13,7 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class PropertyExampleApp2 extends Application {
+public class PropertyExamplePaneResizeApp extends Application {
 
   public static void main(String[] args) {
     launch(args);
