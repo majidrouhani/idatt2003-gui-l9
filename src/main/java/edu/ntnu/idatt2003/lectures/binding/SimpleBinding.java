@@ -1,14 +1,15 @@
 package edu.ntnu.idatt2003.lectures.binding;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class SimpleBinding {
 
     public static void main(String[] args) {
 
         // Define properties
-        SimpleStringProperty property1 = new SimpleStringProperty("Ola");
-        SimpleStringProperty property2 = new SimpleStringProperty("Martin");
+        StringProperty property1 = new SimpleStringProperty("Ola");
+        StringProperty property2 = new SimpleStringProperty("Martin");
 
         // Print properties
         System.out.println(property1.get() + " " + property2.get());

@@ -7,11 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class SimpleTableApp extends Application {
+public class SimpleTableEditApp extends Application {
 
   TableView<SimpleContact> tableView = new TableView<>();
 
@@ -50,17 +51,25 @@ public class SimpleTableApp extends Application {
     TableColumn<SimpleContact, String> col1 = new TableColumn<>();
     col1.setText("First Name");
     col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-    tableView.getColumns().add(col1);
+    col1.setCellFactory(TextFieldTableCell.forTableColumn());
+        col1.setOnEditCommit(event -> {
+            SimpleContact person = event.getRowValue();
+            person.firstNameProperty().setValue(event.getNewValue());
+        });
+
 
     TableColumn<SimpleContact, String> col2 = new TableColumn<>();
     col2.setText("Last Name");
     col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-    tableView.getColumns().add(col2);
 
     TableColumn<SimpleContact, String> col3 = new TableColumn<>();
     col3.setText("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
-    tableView.getColumns().add(col3);
+
+    List<TableColumn<SimpleContact, ?>> columns = List.of(col1, col2, col3);
+    tableView.getColumns().addAll(columns);    
+
+    tableView.setEditable(true);
   }
 
   private void fillTable() {

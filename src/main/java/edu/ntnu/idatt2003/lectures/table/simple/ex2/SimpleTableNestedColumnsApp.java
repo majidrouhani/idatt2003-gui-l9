@@ -52,9 +52,11 @@ public class SimpleTableNestedColumnsApp extends Application {
 
     TableColumn<Contact, String> col1 = new TableColumn<>("First Name");
     col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    tableView.getColumns().add(col1);
 
     TableColumn<Contact, String> col2 = new TableColumn<>("Last Name");
     col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    tableView.getColumns().add(col2);
 
     TableColumn<Contact, String> col3 = new TableColumn<>("Email");
 
@@ -66,9 +68,7 @@ public class SimpleTableNestedColumnsApp extends Application {
 
     col3.getColumns().add(col31);
     col3.getColumns().add(col32);
-
-    List<TableColumn<Contact, ?>> columns = List.of(col1, col2, col3);
-    tableView.getColumns().addAll(columns);    
+    tableView.getColumns().add(col3);
   }
 
   private void fillTable() {

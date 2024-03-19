@@ -57,15 +57,15 @@ public class ContactRegisterApp extends Application {
 
     TableColumn<SimpleContact, String> col1 = new TableColumn<>("First Name");
     col1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+    tableView.getColumns().add(col1);    
 
     TableColumn<SimpleContact, String> col2 = new TableColumn<>("Last Name");
     col2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    tableView.getColumns().add(col2);    
 
     TableColumn<SimpleContact, String> col3 = new TableColumn<>("Email");
     col3.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-    List<TableColumn<SimpleContact, ?>> columns = List.of(col1, col2, col3);
-    tableView.getColumns().addAll(columns);    
+    tableView.getColumns().add(col3);    
   }
 
   private ObservableList<SimpleContact> getContacts() {
